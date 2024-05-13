@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netflix clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/CSS/style.css">
+</head>
+
+<body class="bg-dark">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark " data-bs-theme="dark">
+      <div id="logo" class="container-fluid">
+        <img src="assets/imgs/Netflix_Logo_RGB.png" alt="Logo Netflix">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">TV Shows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Recently Added</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">My List</a>
+            </li>
+          </ul>
+          <div class="d-flex align-content-center icone">
+
+            <svg class="me-2" id="Layer_1" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m14.1210938 4.2216797c-2.7285156-2.7285156-7.1689453-2.7285156-9.8994141 0-2.7285156 2.7294922-2.7285156 7.1708984 0 9.8994141 1.3222656 1.3222656 3.0800781 2.0507813 4.9501953 2.0507813 1.5317383 0 2.9837036-.4959106 4.1866455-1.399292l5.0057373 5.0057373c.1953125.1953125.4511719.2929688.7070313.2929688s.5117188-.0976563.7070313-.2929688c.390625-.390625.390625-1.0234375 0-1.4140625l-5.0057373-5.0057373c.9033813-1.2028809 1.399292-2.6549072 1.399292-4.1866455-.0000001-1.8701173-.7285157-3.6279298-2.0507813-4.9501954zm-8.4853516 8.4853516c-1.9492188-1.9492188-1.9492188-5.1210938 0-7.0712891.9746094-.9746094 2.2558594-1.4619141 3.5361328-1.4619141s2.5605469.4873047 3.5351563 1.4619141c.9443359.9443359 1.4648438 2.2001953 1.4648438 3.5361328 0 1.3349609-.5205078 2.5908203-1.4648438 3.5351563s-2.2001954 1.4648437-3.5351563 1.4648437c-1.3359375 0-2.5917969-.5205078-3.5361328-1.4648437z"
+                fill="#000000" style="fill: rgb(252, 252, 252);"></path>
+            </svg>
+
+
+            <span class="me-2 clr-white">KIDS</span>
+
+
+            <svg class="me-2" id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m450.201 407.453c-1.505-.977-12.832-8.912-24.174-32.917-20.829-44.082-25.201-106.18-25.201-150.511 0-.193-.004-.384-.011-.576-.227-58.589-35.31-109.095-85.514-131.756v-34.657c0-31.45-25.544-57.036-56.942-57.036h-4.719c-31.398 0-56.942 25.586-56.942 57.036v34.655c-50.372 22.734-85.525 73.498-85.525 132.334 0 44.331-4.372 106.428-25.201 150.511-11.341 24.004-22.668 31.939-24.174 32.917-6.342 2.935-9.469 9.715-8.01 16.586 1.473 6.939 7.959 11.723 15.042 11.723h109.947c.614 42.141 35.008 76.238 77.223 76.238s76.609-34.097 77.223-76.238h109.947c7.082 0 13.569-4.784 15.042-11.723 1.457-6.871-1.669-13.652-8.011-16.586zm-223.502-350.417c0-14.881 12.086-26.987 26.942-26.987h4.719c14.856 0 26.942 12.106 26.942 26.987v24.917c-9.468-1.957-19.269-2.987-29.306-2.987-10.034 0-19.832 1.029-29.296 2.984v-24.914zm29.301 424.915c-25.673 0-46.614-20.617-47.223-46.188h94.445c-.608 25.57-21.549 46.188-47.222 46.188zm60.4-76.239c-.003 0-213.385 0-213.385 0 2.595-4.044 5.236-8.623 7.861-13.798 20.104-39.643 30.298-96.129 30.298-167.889 0-63.417 51.509-115.01 114.821-115.01s114.821 51.593 114.821 115.06c0 .185.003.369.01.553.057 71.472 10.25 127.755 30.298 167.286 2.625 5.176 5.267 9.754 7.861 13.798z"
+                fill="#000000" style="fill: rgb(241, 239, 239);"></path>
+            </svg>
+          </div>
+          <div id="profilo">
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="">
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-start  dropdown-menu-lg-end">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="shows d-flex justify-content-between ms-4">
+      <div>
+        <h1 class="clr-white">TV Shows</h1>
+        <div class="btn-group mb-2 ">
+          <button class="btn btn-secondary btn-sm dropdown-toggle btn-generi" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Genres
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Anime</a></li>
+            <li><a class="dropdown-item" href="#">Horror</a></li>
+            <li><a class="dropdown-item" href="#">Thriller</a></li>
+            <li><a class="dropdown-item" href="#">Commedy</a></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="iconVisual d-flex align-items-center me-5">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+          <label class="btn btn-outline-primary" for="btnradio1"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg></label>
+          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btnradio2"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" fill="currentColor" class="bi bi-grid" viewBox="0 0 16 16">
+              <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
+            </svg></label>
+        </div>
+
+
+      </div>
+
+    </div>
+    <section class="container-fluid mt-5 caroselli">
+      <h4 class="clr-white">Trending Now</h4>
+      <div id="carousel1" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active ">
+            <div class="row flexnoWrap  ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2 ">
+                <div class="card">
+                  <img src="assets/imgs/movies/1.png" class="card-img-top" alt="Film 1">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2 ">
+                <div class="card">
+                  <img src="assets/imgs/movies/2.png" class="card-img-top" alt="Film 2">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/3.png" class="card-img-top" alt="Film 3">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/4.png" class="card-img-top" alt="Film 4">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/5.png" class="card-img-top" alt="Film 5">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/6.png" class="card-img-top" alt="Film 6">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/7.png" class="card-img-top" alt="Film 7">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/8.png" class="card-img-top" alt="Film 8">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/9.png" class="card-img-top" alt="Film 9">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/10.png" class="card-img-top" alt="Film 10">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/11.png" class="card-img-top" alt="Film 11">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/12.png" class="card-img-top" alt="Film 12">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/13.png" class="card-img-top" alt="Film 13">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/14.png" class="card-img-top" alt="Film 14">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/15.png" class="card-img-top" alt="Film 15">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/16.png" class="card-img-top" alt="Film 16">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/17.png" class="card-img-top" alt="Film 17">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/18.png" class="card-img-top" alt="Film 18">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="container-fluid mt-5 caroselli">
+      <h4 class="clr-white">Watch It Again</h4>
+      <div id="carousel2" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/12.png" class="card-img-top" alt="Film 12">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/11.png" class="card-img-top" alt="Film 11">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/10.png" class="card-img-top" alt="Film 10">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/9.png" class="card-img-top" alt="Film 9">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/8.png" class="card-img-top" alt="Film 8">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/7.png" class="card-img-top" alt="Film 7">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/6.png" class="card-img-top" alt="Film 6">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/5.png" class="card-img-top" alt="Film 5">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/4.png" class="card-img-top" alt="Film 4">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/3.png" class="card-img-top" alt="Film 3">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/2.png" class="card-img-top" alt="Film 2">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/1.png" class="card-img-top" alt="Film 1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/18.png" class="card-img-top" alt="Film 18">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/17.png" class="card-img-top" alt="Film 17">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/16.png" class="card-img-top" alt="Film 16">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/15.png" class="card-img-top" alt="Film 15">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/14.png" class="card-img-top" alt="Film 14">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/13.png" class="card-img-top" alt="Film 13">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="container-fluid mt-5 caroselli">
+      <h4 class="clr-white">New Releases</h4>
+      <div id="carousel3" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/13.png" class="card-img-top" alt="Film 13">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/14.png" class="card-img-top" alt="Film 14">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/15.png" class="card-img-top" alt="Film 15">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/16.png" class="card-img-top" alt="Film 16">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/17.png" class="card-img-top" alt="Film 17">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/18.png" class="card-img-top" alt="Film 18">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/7.png" class="card-img-top" alt="Film 7">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/8.png" class="card-img-top" alt="Film 8">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/9.png" class="card-img-top" alt="Film 9">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/10.png" class="card-img-top" alt="Film 10">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/11.png" class="card-img-top" alt="Film 11">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/12.png" class="card-img-top" alt="Film 12">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/3.png" class="card-img-top" alt="Film 3">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/4.png" class="card-img-top" alt="Film 4">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/5.png" class="card-img-top" alt="Film 5">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/1.png" class="card-img-top" alt="Film 1">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/2.png" class="card-img-top" alt="Film 2">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/6.png" class="card-img-top" alt="Film 6">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="container-fluid mt-5 caroselli">
+      <h4 class="clr-white">Trending Now</h4>
+      <div id="carousel4" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active ">
+            <div class="row flexnoWrap  ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2 ">
+                <div class="card">
+                  <img src="assets/imgs/movies/1.png" class="card-img-top" alt="Film 1">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2 ">
+                <div class="card">
+                  <img src="assets/imgs/movies/2.png" class="card-img-top" alt="Film 2">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/3.png" class="card-img-top" alt="Film 3">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/4.png" class="card-img-top" alt="Film 4">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/5.png" class="card-img-top" alt="Film 5">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/6.png" class="card-img-top" alt="Film 6">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/7.png" class="card-img-top" alt="Film 7">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/8.png" class="card-img-top" alt="Film 8">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/9.png" class="card-img-top" alt="Film 9">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/10.png" class="card-img-top" alt="Film 10">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/11.png" class="card-img-top" alt="Film 11">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/12.png" class="card-img-top" alt="Film 12">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/13.png" class="card-img-top" alt="Film 13">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/14.png" class="card-img-top" alt="Film 14">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/15.png" class="card-img-top" alt="Film 15">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/16.png" class="card-img-top" alt="Film 16">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/17.png" class="card-img-top" alt="Film 17">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/18.png" class="card-img-top" alt="Film 18">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel4" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel4" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="container-fluid mt-5 caroselli">
+      <h4 class="clr-white">Watch It Again</h4>
+      <div id="carousel5" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/12.png" class="card-img-top" alt="Film 12">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/11.png" class="card-img-top" alt="Film 11">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/10.png" class="card-img-top" alt="Film 10">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/9.png" class="card-img-top" alt="Film 9">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/8.png" class="card-img-top" alt="Film 8">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/7.png" class="card-img-top" alt="Film 7">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/6.png" class="card-img-top" alt="Film 6">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/5.png" class="card-img-top" alt="Film 5">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/4.png" class="card-img-top" alt="Film 4">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/3.png" class="card-img-top" alt="Film 3">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/2.png" class="card-img-top" alt="Film 2">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/1.png" class="card-img-top" alt="Film 1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/18.png" class="card-img-top" alt="Film 18">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/17.png" class="card-img-top" alt="Film 17">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/16.png" class="card-img-top" alt="Film 16">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/15.png" class="card-img-top" alt="Film 15">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/14.png" class="card-img-top" alt="Film 14">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/13.png" class="card-img-top" alt="Film 13">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="container-fluid mt-5 caroselli">
+      <h4 class="clr-white">New Releases</h4>
+      <div id="carousel6" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/13.png" class="card-img-top" alt="Film 13">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/14.png" class="card-img-top" alt="Film 14">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/15.png" class="card-img-top" alt="Film 15">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/16.png" class="card-img-top" alt="Film 16">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/17.png" class="card-img-top" alt="Film 17">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/18.png" class="card-img-top" alt="Film 18">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/7.png" class="card-img-top" alt="Film 7">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/8.png" class="card-img-top" alt="Film 8">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/9.png" class="card-img-top" alt="Film 9">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/10.png" class="card-img-top" alt="Film 10">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/11.png" class="card-img-top" alt="Film 11">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/12.png" class="card-img-top" alt="Film 12">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row flexnoWrap ">
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/3.png" class="card-img-top" alt="Film 3">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/4.png" class="card-img-top" alt="Film 4">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/5.png" class="card-img-top" alt="Film 5">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/1.png" class="card-img-top" alt="Film 1">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/2.png" class="card-img-top" alt="Film 2">
+                </div>
+              </div>
+              <div class="col-6 col-sm-4 col-md-4 col-lg-2 gy-2">
+                <div class="card">
+                  <img src="assets/imgs/movies/6.png" class="card-img-top" alt="Film 6">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+
+
+
+  </main>
+<div class="footWrap">
+  <footer class="">
+    <div class="container mt-5 pt-5 pb-3">
+      <div class="row  ">
+        <div class="col-6 d-flex ">
+          <i class="fa-brands fa-facebook ps-2 pe-5"></i>
+          <i class="fa-brands fa-instagram pe-5"></i>
+          <i class="fa-brands fa-twitter pe-5"></i>
+          <i class="fa-brands fa-youtube pe-5"></i>
+        </div>
+      </div>
+    </div>
+    <div class="container p-1 ">
+      <div class="row d-flex ">
+        <div class="col-3  ps-0">
+          <ul class="d-flex flex-column justify-content-center">
+            <li class=" pb-3 ">Audio and Subtitles</li>
+            <li class=" pb-3">Media Center</li>
+            <li class=" pb-3">Privacy</li>
+            <li class=" pb-3">Contact Us</li>
+          </ul>
+        </div>
+        <div class="col-3 ps-0">
+          <ul class="d-flex flex-column ">
+            <li class=" pb-3">Audio Description</li>
+            <li class=" pb-3">Investor Relation</li>
+            <li class=" pb-3">Legal Notices</li>
+          </ul>
+        </div>
+        <div class="col-3 ps-0">
+          <ul class="d-flex flex-column ">
+            <li class=" pb-3">Help Center</li>
+            <li class=" pb-3">Jobs</li>
+            <li class=" pb-3">Cookie Preferences</li>
+          </ul>
+        </div>
+        <div class="col-3 ps-0">
+          <ul class="d-flex flex-column ">
+            <li class=" pb-3">Gift Cards</li>
+            <li class=" pb-3">Terms of Use</li>
+            <li class=" pb-3">Corporate Information</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container p-0 mb-5">
+      <button id="service" class="ms-3 mb-2 p-2"> Service Code </button>
+      <p><i class="fa-regular fa-copyright ps-3"></i> 1997-2019 Netflix, inc.{i-01234545d3} </p>
+    </div>
+  </footer>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="assets/JS/script.js"></script>
+</body>
+
+</html>
